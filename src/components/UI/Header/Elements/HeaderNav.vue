@@ -140,14 +140,16 @@ const clearSearch = () => {
   searchShow.value = false;
 };
 
-const handleFocusOut = (event: Event) => {
+const handleFocusOut = (event: FocusEvent) => {
   setTimeout(() => {
-    if (event.relatedTarget && event.relatedTarget.tagName === 'A') {
-      return; // Не закрываем, если кликнули на ссылку
+    const target = event.relatedTarget as HTMLElement | null;
+    if (target && target.tagName === 'A') {
+      return;
     }
+
     searchActive.value = false;
     searchShow.value = false;
-  })
+  });
 }
 
 
@@ -172,7 +174,7 @@ watchEffect(() => {
       </RouterLink>
       <div class="flex items-center gap-x-4" >
         <div class="hidden max-xl:flex items-center relative">
-          <Transition name="fade" @focusout="handleFocusOut">
+          <Transition name="fade" @focusout="handleFocusOut" tabindex="0">
             <input
                 v-if="searchShow"
                 @click="searchActive = true"
@@ -253,9 +255,9 @@ watchEffect(() => {
         </div>
       </div>
     </div>
-    <div  tabindex="0"
+    <div
         class="hidden max-sm:flex max-sm:flex-col max-sm:justify-center max-sm:items-center max-sm:relative max-sm:px-2">
-      <Transition name="fade" @focusout="handleFocusOut">
+      <Transition name="fade" @focusout="handleFocusOut" tabindex="0">
         <input
             v-if="searchShow"
             @click="searchActive = true"
@@ -339,7 +341,7 @@ watchEffect(() => {
         </div>
         <div class="flex items-center gap-x-7 max-lg:mt-[30px]">
           <div class="flex relative max-sm:hidden" >
-            <Transition name="fade" >
+            <Transition name="fade" @focusout="handleFocusOut" tabindex="0">
               <input
                   v-if="searchShow"
                   @click="searchActive = true"

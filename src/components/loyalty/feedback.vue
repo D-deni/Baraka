@@ -4,7 +4,6 @@ import TheBlock from "../UI/TheBlock.vue";
 import arrowLeft from '/img/elements/vectors/arrow-left.png?url'
 import TheService from "../UI/TheService.vue";
 import QrAppStore from '/img/elements/loyalty/appQR.svg?url'
-import QrGooglePlay from '/img/elements/loyalty/appQR.svg?url'
 </script>
 
 <template>
