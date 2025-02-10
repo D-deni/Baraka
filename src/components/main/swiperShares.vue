@@ -83,7 +83,7 @@ onMounted(() => {
               :card-link="item?.id"
         >
           <template v-slot:cardImage>
-            <img class="rounded-lg h-max" :src="globalUrl + item?.poster_url" alt="">
+            <img class="rounded-lg " width="100%" height="100%" :src="globalUrl + item?.poster_url" alt="">
           </template>
         </Card>
       </SwiperSlide>

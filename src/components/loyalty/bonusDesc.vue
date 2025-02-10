@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LogoOrange from '/public/img/logo/logoOrange.svg?skipsvgo'
 import LogoVector from '/public/img/logo/logoVector.svg?skipsvgo'
-import ImgSeven from "/img/elements/loyalty/seven.png?url";
+import ImgSeven from "/img/elements/loyalty/seven.webp?url";
 import TheTitle from "../UI/TheTitle.vue";
 </script>
 

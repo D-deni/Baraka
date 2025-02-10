@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import TheTitle from "../UI/TheTitle.vue";
-import ImgOne from '/img/elements/about/one.png?url'
-import ImgTwo from "/img/elements/about/two.png?url";
-import ImgThree from '/img/elements/about/three.png?url'
+import ImgOne from '/img/elements/about/one.webp?url'
+import ImgTwo from "/img/elements/about/two.webp?url";
+import ImgThree from '/img/elements/about/three.webp?url'
 import VectorLogo from '/public/img/logo/logoVector.svg?skipsvgo'
 </script>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import ImgSix from "/img/elements/loyalty/six.png?url";
+import ImgSix from "/img/elements/loyalty/six.webp?url";
 import TheTitle from "../UI/TheTitle.vue";
 </script>
 

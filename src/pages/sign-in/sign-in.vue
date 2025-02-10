@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import Left from "../../components/sign-in/left.vue";
-import ImgSignIn from '/img/elements/sign-in/sign-in.png?url'
-import ImgSingUp from '/img/elements/sign-in/sign-up.png?url'
-import ImgDate from '/img/elements/sign-in/date.png?url'
+import ImgSignIn from '/img/elements/sign-in/sign-in.webp?url'
+import ImgSingUp from '/img/elements/sign-in/sign-up.webp?url'
+import ImgDate from '/img/elements/sign-in/date.webp?url'
 import {useRoute} from "vue-router";
 import TheBreadcrumbs from "../../components/UI/TheBreadcrumbs.vue";
 import {computed, ref, watch} from "vue";

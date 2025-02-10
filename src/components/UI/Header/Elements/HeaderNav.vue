@@ -67,32 +67,17 @@ const navArray = ref([
 
 
 const formatNumber = (number: number) => {
-  // Преобразуем число в строку
   const numStr = number.toString();
-
-  // Разделяем число на целую часть и дробную (в случае, если они есть)
-  const [integerPart, decimalPart] = numStr.split('.');
-
-  // Получаем основную часть числа (целую часть до последних 3 цифр)
+  const [integerPart] = numStr.split('.');
   const mainPart = Math.floor(number / 1000);
-
-  // Получаем остаток (это последние 3 цифры числа)
   const remainder = number % 1000;
-
-  // Преобразуем остаток в строку с ведущими нулями, если необходимо
   const remainderStr = remainder.toString().padStart(3, '0');
-
-  // Строим результат
   let result = mainPart.toString();
-
-  // Если остаток существует, добавляем его в sup
   if (remainder !== 0) {
     result += `<sup>${remainderStr}</sup>`;
   } else if (remainderStr === '000' && integerPart) {
-    // Оборачиваем нули в <sup> только если они не исходят из целой части
     result += `<sup>${remainderStr}</sup>`;
   }
-
   return result;
 };
 
@@ -168,7 +153,7 @@ watchEffect(() => {
 <template>
   <div class="font-oregular ">
     <div class="hidden max-xl:flex items-center justify-between px-[15px]" :class="{'blur-sm' : global.showMenu}">
-      <RouterLink class="flex items-center max-sm:w-6/12 max-sm:gap-x-2" to="/">
+      <RouterLink class="flex items-center max-sm:w-6/12 max-sm:gap-x-2" to="/" aria-label="Home">
         <LogoIcon/>
         <LogoText class="fill-to"/>
       </RouterLink>
@@ -360,7 +345,7 @@ watchEffect(() => {
               </div>
               <div v-else>
                 <RouterLink :to="`/product/${result.id}`" @click.stop="searchActive = false; searchShow = false"
-                            v-for="result in productsStore.searchedArray" :key="result.id"
+                            v-for="(result, index) in productsStore.searchedArray" :key="result.id"
                             :style="{ transitionDelay: `${index * 100}ms` }"
                             class="p-4 border-b items-center hover:bg-gray-200 hover:first:rounded-t-2xl hover:last:rounded-b-2xl text-start flex gap-x-4 ">
                   <img :src="globalUrl + result.image_url" alt="" class="w-[75px] h-[62px]"/>

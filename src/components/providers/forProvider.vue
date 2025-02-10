@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import TheTitle from "../UI/TheTitle.vue";
-import ImgOne from "/public/img/elements/providers/provider.png?url"
+import ImgOne from "/public/img/elements/providers/provider.webp?url"
 import LogoVector from "/public/img/logo/logoVector.svg?skipsvgo";
 import Logo from "/public/img/logo/logo.svg?skipsvgo";
 import {ref} from "vue";

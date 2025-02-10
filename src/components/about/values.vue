@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import TheTitle from "../UI/TheTitle.vue";
 import {ref} from "vue";
-import ImgOne from "/img/elements/about/value/one.png?url";
-import ImgTwo from "/img/elements/about/value/two.png?url";
-import ImgThree from '/img/elements/about/value/three.png?url'
-import ImgFour from '/img/elements/about/value/four.png?url'
+import ImgOne from "/img/elements/about/value/one.webp?url";
+import ImgTwo from "/img/elements/about/value/two.webp?url";
+import ImgThree from '/img/elements/about/value/three.webp?url'
+import ImgFour from '/img/elements/about/value/four.webp?url'
 const valueArray = ref([
   {
     id: 0,

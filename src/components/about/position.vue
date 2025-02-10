@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ImgTwo from '/public/img/elements/about/twoVector.png?url'
+import ImgTwo from '/public/img/elements/about/twoVector.webp?url'
 import TheTitle from "../UI/TheTitle.vue";
 </script>
 

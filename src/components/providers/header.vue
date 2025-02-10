@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import ImgOne from "/img/elements/providers/one.png?url";
-import ImgTwo from "/img/elements/providers/two.png?url";
+import ImgOne from "/img/elements/providers/one.webp?url";
+import ImgTwo from "/img/elements/providers/two.webp?url";
 
 import TheTitle from "../UI/TheTitle.vue";
 </script>

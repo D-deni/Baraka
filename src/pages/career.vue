@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LogoVector from "/public/img/logo/logoVector.svg?skipsvgo";
 import Logo from "/public/img/logo/logo.svg?skipsvgo";
-import ImgOne from "/public/img/elements/career/one.png?url";
+import ImgOne from "/public/img/elements/career/one.webp?url";
 import TheTitle from "../components/UI/TheTitle.vue";
 import TheBlock from "../components/UI/TheBlock.vue";
 import {onMounted, ref} from "vue";

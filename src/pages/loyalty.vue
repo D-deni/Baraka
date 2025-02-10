@@ -39,7 +39,7 @@ import Feedback from "../components/loyalty/feedback.vue";
       <BonusDesc/>
     </div>
     <div class="my-[112px] bg-[#F7F6F9] max-xl:h-max relative ">
-      <div class="bg-[url('/img/elements/vectors/ellipsesTwo.png')] bg-no-repeat bg-right-top bg-[length:1300px_1000px] max-lg:bg-cover">
+      <div class="bg-[url('/img/elements/vectors/ellipsestwo.webp')] bg-no-repeat bg-right-top bg-[length:1300px_1000px] max-lg:bg-cover">
         <Birthday/>
       </div>
     </div>

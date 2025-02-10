@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import ImgQr from '../../../public/img/elements/loyalty/appQR.svg?url'
-import ImgArrow from '/img/elements/mobile/arrow.png?url'
-import ImgIphone from '/img/elements/mobile/phone.png?url'
-import ImgIphoneTwo from '/img/elements/mobile/phonetwo.png?url'
+import ImgArrow from '/img/elements/mobile/arrow.webp?url'
+import ImgIphone from '/img/elements/mobile/phone.webp?url'
+import ImgIphoneTwo from '/img/elements/mobile/phonetwo.webp?url'
 import TheService from "../UI/TheService.vue";
 </script>
 

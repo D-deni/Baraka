@@ -2,9 +2,9 @@
 
 import TheTitle from "../components/UI/TheTitle.vue";
 import {ref} from "vue";
-import ImgOne from '/img/elements/advertisers/one.png?url'
-import ImgTwo from '/img/elements/advertisers/two.png?url'
-import ImgThree from '/img/elements/advertisers/three.png?url'
+import ImgOne from '/img/elements/advertisers/one.webp?url'
+import ImgTwo from '/img/elements/advertisers/two.webp?url'
+import ImgThree from '/img/elements/advertisers/three.webp?url'
 import TheBlock from "../components/UI/TheBlock.vue";
 import Contacts from "../components/reused/contacts.vue";
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import TheBlock from "../UI/TheBlock.vue";
 import {ref} from "vue";
-import ImgOne from '/img/elements/loyalty/one.png?url'
-import ImgTwo from "/img/elements/loyalty/two.png?url";
-import ImgThree from "/img/elements/loyalty/three.png?url";
+import ImgOne from '/img/elements/loyalty/one.webp?url'
+import ImgTwo from "/img/elements/loyalty/two.webp?url";
+import ImgThree from "/img/elements/loyalty/three.webp?url";
 const qualityArray = ref([
   {
     id: 0,

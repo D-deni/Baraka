@@ -45,15 +45,15 @@ export default {
         'ct': "linear-gradient(90deg, rgba(255,255,255,0) 0%, (0,0,0,0) 99%)"
       },
       content: {
-        'arrowRight': 'url("/img/elements/vectors/arrow-right.png")',
-        'arrowLeft': 'url("/img/elements/vectors/arrow-left.png")'
+        'arrowRight': 'url("/img/elements/vectors/arrow-right.webp")',
+        'arrowLeft': 'url("/img/elements/vectors/arrow-left.webp")'
       },
       backgroundColor: {
         'bgGray': '#F2F2F2'
       },
       backgroundImage: {
         'feedbackGradient': 'linear-gradient(91.71deg, #FE5000 30.36%, #FFC600 100.08%)',
-        'bgCareer': "url('/img/elements/career/bg.png')"
+        'bgCareer': "url('/img/elements/career/bg.webp')"
       },
       boxShadow: {
         'blockShadow': '0px 4px 32px 0px rgba(0, 0, 0, 0.08)',

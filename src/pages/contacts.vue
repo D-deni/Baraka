@@ -42,7 +42,7 @@ const globalStore = useGlobalStore()
     </div>
 
     <div class=" bg-[#F7F6F9] max-xl:h-max relative">
-      <div class="bg-[url('/img/elements/vectors/ellipsesTwo.png')] bg-no-repeat bg-right-top bg-contain max-lg:bg-cover">
+      <div class="bg-[url('/img/elements/vectors/ellipsestwo.webp')] bg-no-repeat bg-right-top bg-contain max-lg:bg-cover">
         <div class="container mx-auto py-[112px] relative">
           <div class="flex items-center justify-between">
             <div class="w-5/12 justify-center mx-auto flex flex-col">

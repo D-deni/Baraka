@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import ImgContact from '/img/elements/vectors/contact.png?url'
+import ImgContact from '/img/elements/vectors/contact.webp?url'
 import VectorEllipse from '/public/img/elements/vectors/ellipses-two.svg?skipsvgo'
-import ArrowLeft from '/img/elements/vectors/arrow-left.png?url'
-import ImgMail from "/img/elements/vectors/mail.png?url"
+import ArrowLeft from '/img/elements/vectors/arrow-left.webp?url'
+import ImgMail from "/img/elements/vectors/mail.webp?url"
 import TheTitle from "../UI/TheTitle.vue";
 defineProps({
   botBlockFlag: Boolean,
