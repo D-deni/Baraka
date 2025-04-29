@@ -19,6 +19,11 @@ export const useGlobalStore = defineStore('globalStore', {
     showMenu: false,
     showMenuProfile: false,
     showMenuProfileUser:false,
+    feedback: '',
+    language: (() => {
+      const storedLanguage = localStorage.getItem("language");
+      return storedLanguage === 'ru' || storedLanguage === 'uz' ? storedLanguage : 'ru';
+    })(),
     newsletter: [],
     socials: [] as TSocial[],
   }),
@@ -45,6 +50,12 @@ export const useGlobalStore = defineStore('globalStore', {
       }).then(res => {
         this.socials = res.data
       })
+    },
+    async createFeedback(params: {content: any}) {
+      await axios.post('feedback/', params, {})
+          .then(res => {
+            this.feedback = res.data
+          })
     }
   }
 })

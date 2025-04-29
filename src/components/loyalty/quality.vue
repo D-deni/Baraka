@@ -4,29 +4,33 @@ import {ref} from "vue";
 import ImgOne from '/img/elements/loyalty/one.webp?url'
 import ImgTwo from "/img/elements/loyalty/two.webp?url";
 import ImgThree from "/img/elements/loyalty/three.webp?url";
+import {useI18n} from "vue-i18n";
+
+
+const {t} = useI18n()
 const qualityArray = ref([
   {
     id: 0,
-    title:'Давайте дружить',
-    linkText: 'Зарегистрируйте',
+    title: t('Давайте дружить'),
+    linkText: t('Зарегистрируйте'),
     link:'',
-    desc: 'карту Baracka club',
+    desc: t('карту Baraka club'),
     img: ImgOne
   },
   {
     id: 1,
-    title:'Получайте кешбек',
+    title: t('Получайте кешбек'),
     linkText: '',
     link:'',
-    desc: 'Совершайте покупки и получайте кешбэк в магазине Baraka Market.',
+    desc: t('Совершайте покупки и получайте кешбэк в магазине Baraka Market.'),
     img: ImgTwo
   },
   {
     id: 2,
-    title:'Получайте статусы',
+    title: t('Получайте статусы'),
     linkText: '',
     link:'',
-    desc: 'Процент кешбэка зависит от суммы покупок в предыдущем месяце',
+    desc: t('Процент кешбэка зависит от суммы покупок в предыдущем месяце'),
     img: ImgThree
   },
 
@@ -40,8 +44,8 @@ const qualityArray = ref([
         <img class="w-full mx-auto" :src="item.img" alt="">
       </div>
       <div class="w-10/12 flex flex-col gap-y-4 text-center">
-        <h3 class="text-2xl text-to font-osemibold">{{item.title}}</h3>
-        <p class="font-oregular text-[17px] flex flex-col"><RouterLink :to="item.link" class="text-to">{{$t(item.linkText) + ' '}}</RouterLink>{{item.desc}}</p>
+        <h3 class="text-2xl text-to font-osemibold">{{t(item.title)}}</h3>
+        <p class="font-oregular text-[17px] flex flex-col"><RouterLink :to="item.link" class="text-to">{{$t(item.linkText) + ' '}}</RouterLink>{{t(item.desc)}}</p>
       </div>
     </TheBlock>
   </div>

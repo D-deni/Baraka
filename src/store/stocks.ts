@@ -5,10 +5,12 @@ import axios from "../composables/axios.ts";
 type TStock = {
   id: number
   title: string,
+  title_uz: string
   image_url: string,
   image?: string,
   poster_url?: string,
   content: string,
+  content_uz: string,
   start_date: string,
   end_date: string,
 }
@@ -31,10 +33,14 @@ export const useStocksStore = defineStore('useStocks', {
           this.stocks = res.data
         })
     },
-    async loadCurrentStock(params: {id: any}) {
+    async loadCurrentStock(params: {id: any, router: any}) {
       await axios.get(`promotion/${params.id}`, {})
         .then(res=> {
           this.stock = res.data
+        }).catch(err => {
+          if (err.response && err.response.status === 404) {
+            params.router.push('/')
+          }
         })
     }
   }

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import LogoIcon from '/public/img/logo/logo.svg?skipsvgo'
 import LogoText from '/public/img/logo/logo-text.svg?skipsvgo'
 import {ref} from "vue";
 import {useRoute} from "vue-router";
@@ -60,7 +59,7 @@ const navArray = ref([
   <div class="py-4 px-2 bg-white rounded-3xl h-full">
     <div class="flex gap-x-10">
       <RouterLink class="flex items-center gap-x-2 max-sm:w-6/12 max-sm:gap-x-2" to="/admin/products">
-        <LogoIcon/>
+        <img class="w-[64px] h-[65px]" src="/img/logo/logo.webp" alt="Logo" width="64" height="65">
         <LogoText class="fill-to"/>
       </RouterLink>
       <div class="text-to h-max p-2 rounded-[10px] font-oregular text-[15px] bg-bgGray">

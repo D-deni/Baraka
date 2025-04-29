@@ -4,6 +4,8 @@ import axios from "../composables/axios.ts";
 type TNews = {
   id: number,
   content?: any,
+  content_uz?: any,
+  title_uz: string
   title: string,
   image_url: string
   created_at: string
@@ -31,10 +33,14 @@ export const useNewsStore = defineStore('newsStore', {
         })
     },
 
-    async loadCurrentNews(params: { id: string | string[] }) {
+    async loadCurrentNews(params: { id: string | string[], router: any }) {
       await axios.get(`news/${params.id}`, {})
         .then(response => {
           this.currentNews = response.data
+        }).catch(err => {
+          if (err.response && err.response.status === 404) {
+            params.router.push('/')
+          }
         })
     }
   },

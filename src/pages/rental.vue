@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import TheTitle from "../components/UI/TheTitle.vue";
-import ImgRental from '/public/img/elements/rental/rental.svg?skipsvgo'
+import ImgRental from '/public/img/elements/rental/rental.webp?url'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import ImgRental from '/public/img/elements/rental/rental.svg?skipsvgo'
     <TheTitle>
       {{$t('Арендодателям')}}
     </TheTitle>
-    <ImgRental class="my-[5px] w-full"/>
+    <img :src="ImgRental" class="my-[5px] w-full" alt="rental"/>
     <div class="flex gap-y-10 flex-col">
       <p>{{$t('Сеть магазинов «Baraka Market» рассмотрит аренду помещений, зданий, для размещения торговых объектов в формате магазин у дома на территории РУз.')}}</p>
       <p>{{$t('Под продовольственный магазин формата у дома рассматриваются помещения площадью от 200 кв.м. до 400 кв.м')}}</p>

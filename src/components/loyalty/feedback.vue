@@ -7,7 +7,7 @@ import QrAppStore from '/img/elements/loyalty/appQR.svg?url'
 </script>
 
 <template>
-  <div class="flex justify-between max-lg:flex-col max-lg:px-6 max-lg:gap-y-10 items-center w-full">
+  <div class="flex justify-around max-lg:flex-col max-lg:px-6 max-lg:gap-y-10 items-center w-full">
     <div class="flex items-end gap-x-10">
       <div>
         <TheTitle class="max-sm:text-center">
@@ -32,7 +32,7 @@ import QrAppStore from '/img/elements/loyalty/appQR.svg?url'
       </div>
     </div>
     <div>
-      <TheBlock class="p-6 rounded-2xl !shadow-blockShadow">
+      <TheBlock class="p-6 rounded-2xl !w-full !shadow-blockShadow">
         <TheTitle class="text-[24px] text-center font-osemibold max-md:text-2xl max-md:text-center">
           {{$t('Скачать наше приложение')}}
         </TheTitle>
@@ -42,8 +42,8 @@ import QrAppStore from '/img/elements/loyalty/appQR.svg?url'
               <img class="" :src="QrAppStore" alt="">
             </div>
          </div>
-         <div class="flex max-md:flex-wrap max-md:gap-y-10 max-md:justify-center justify-center gap-x-10 mt-6">
-           <TheService :service-block-style="`bg-bgGray !w-full`"></TheService>
+         <div class="flex max-md:flex-wrap max-md:gap-y-10 max-md:justify-center max-md:mx-auto justify-center gap-x-10 mt-6">
+           <TheService :service-block-style="`bg-bgGray `"></TheService>
          </div>
        </div>
       </TheBlock>

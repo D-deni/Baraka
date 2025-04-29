@@ -8,7 +8,7 @@ defineProps(
 </script>
 
 <template>
-    <a href="https://apps.apple.com/uz/app/baraka-market/id6472742783" :class="serviceBlockStyle" class="flex gap-x-2 items-center w-[169px] py-1 px-3 rounded-lg cursor-pointer">
+    <a href="https://apps.apple.com/uz/app/baraka-market/id6472742783" :class="serviceBlockStyle" class="flex gap-x-2 items-center h-[46px] py-1 px-3 rounded-lg cursor-pointer">
       <div>
         <svg :fill="svgColorApple" height="30px" width="30px" version="1.1" id="Capa_1"
              xmlns="http://www.w3.org/2000/svg"
@@ -24,11 +24,10 @@ defineProps(
               </svg>
       </div>
       <div class="flex flex-col leading-none">
-        <p class="text-[13px]">{{ $t('Download on the') }}</p>
         <p class="text-xl font-bold">{{ $t('App Store') }}</p>
       </div>
     </a>
-    <a href="https://play.google.com/store/apps/details?id=ru.r.proc.smartkit.baraka&hl=en_GB&gl=UZ&pli=1" :class="serviceBlockStyle" class="flex gap-x-2 items-center w-[172px] py-2 px-3 rounded-lg cursor-pointer">
+    <a href="https://play.google.com/store/apps/details?id=ru.r.proc.smartkit.baraka&hl=en_GB&gl=UZ&pli=1" :class="serviceBlockStyle" class="flex gap-x-2 items-center h-[46px] py-2 px-3 rounded-lg cursor-pointer">
       <div>
         <svg width="30px" height="30px" viewBox="-9 0 274 274" version="1.1" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
@@ -51,8 +50,7 @@ defineProps(
         </svg>
       </div>
       <div class="flex flex-col leading-none">
-        <p class="text-[13px]">{{ $t('GET IT ON') }}</p>
-        <p class="text-lg font-semibold ">{{ $t('Google Play') }}</p>
+        <p class="text-lg  !font-bold">{{ $t('Google Play') }}</p>
       </div>
     </a>
 </template>

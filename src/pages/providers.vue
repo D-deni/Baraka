@@ -20,7 +20,7 @@ import Contacts from "../components/reused/contacts.vue";
       <ForProvider/>
     </div>
     <div class="container mx-auto my-[112px]">
-      <Contacts :title-style="`!w-6/12`" :vacancies-block-flag="true" :block-style="`overflow-hidden`">
+      <Contacts :title-style="`!w-6/12`" is-email="supplier@barakamarket.uz" :vacancies-block-flag="true" :block-style="`overflow-hidden`">
         <template #title>
           {{$t('Просим вас направить заявку и презентацию (фотографии и описание) вашей компании, а также интересующие вопросы по адресу:')}}
         </template>

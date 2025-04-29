@@ -28,7 +28,7 @@ const stockStore = useStocksStore()
 </script>
 
 <template>
-  <Swiper class=""
+  <Swiper class=" max-2xl:h-auto"
           :slides-per-view=" isMobileImage ? 1.15 : 1"
           :centered-slides="true"
           :space-between="-40"
@@ -48,10 +48,16 @@ const stockStore = useStocksStore()
               }
             }"
   >
-    <SwiperSlide class="h-auto max-sm:w-max" v-for="item in stockStore.stocks" :key="item.id">
+    <SwiperSlide class="h-auto max-sm:w-max" v-for="item in stockStore.stocks.slice(-10)" :key="item.id">
       <RouterLink :to="`/stocks/${item.id}`">
-        <img class="max-lg:h-auto max-lg:w-11/12 max-sm:w-max mx-auto my-auto transition-all rounded-xl duration-200"
-             :class="{'scale-90 transition-all duration-200' : item.id !== activeSlide}" :src=" isMobileImage ? globalUrl + item.image_url : globalUrl + item.poster_url" alt="">
+        <img class="w-full h-max max-lg:h-auto max-lg:w-11/12 max-sm:w-max mx-auto my-auto transition-all rounded-xl duration-200"
+             :class="{'scale-90 transition-all duration-200' : item.id !== activeSlide}"
+             :src=" isMobileImage ? globalUrl + item.image_url : globalUrl + item.poster_url"
+             :srcset="`${globalUrl + item.poster_url} 900vw, ${globalUrl + item.image_url} 1000vw`"
+             :alt="`Акция ${item.title}`"
+             width="1000"
+             height="600"
+        >
       </RouterLink>
     </SwiperSlide>
   </Swiper>
@@ -60,6 +66,19 @@ const stockStore = useStocksStore()
 <style>
 .swiper-pagination-bullet {
   background: rgba(0, 0, 0, .4);
+}
+
+.swiper-pagination-bullet-active {
+  background: #FE5000;
+}
+
+.swiper-pagination {
+  position: relative !important;
+}
+
+
+.swiper-pagination-bullet {
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .swiper-pagination-bullet-active {

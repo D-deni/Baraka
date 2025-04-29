@@ -4,12 +4,17 @@ import axios from "../composables/axios.ts";
 type TVacancies = {
   id: number,
   title: string,
-  address: string
+  title_uz:string,
+  address_uz:string,
+  address: string,
+  description_uz: string
+  description: string,
 }
 
 type TCondition = {
   id: number,
   title: string,
+  title_uz: string,
   position: number
 }
 

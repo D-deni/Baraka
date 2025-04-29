@@ -3,7 +3,6 @@
 import TheTitle from "../UI/TheTitle.vue";
 import ImgOne from "/public/img/elements/providers/provider.webp?url"
 import LogoVector from "/public/img/logo/logoVector.svg?skipsvgo";
-import Logo from "/public/img/logo/logo.svg?skipsvgo";
 import {ref} from "vue";
 const conditionArray = ref([
   {
@@ -33,7 +32,7 @@ const conditionArray = ref([
             <li class="flex items-center gap-x-10 max-sm:flex-col max-sm:text-center max-sm:gap-y-2" v-for="item in conditionArray" :key="item.id">
               <div class="relative bg-white px-6 py-2 rounded-lg shadow-numberShadow">
                 <p class="text-to text-[33px] font-semibold">{{item.number}}</p>
-                <Logo class="absolute -top-2 -right-2 w-[35px] h-[35px]"/>
+                <img src="/img/logo/logo.webp" alt="Logo" class="absolute -top-2 -right-2 w-[35px] h-[35px]"/>
               </div>
 
               <div>

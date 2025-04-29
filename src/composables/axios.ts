@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'https://api-baraka.ai-softdev.com/'
+  baseURL: 'https://backend.barakamarket.uz/'
 })

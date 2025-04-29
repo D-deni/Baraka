@@ -60,7 +60,8 @@ defineProps<{
             :card-block-style="cardBlockStyleReuse"
             :card-link-text="cardLinkTextReuse"
             :card-price-design-container="`absolute top-40 -right-10 text-white`"
-            :card-price-design="`relative text-center bg-[#FE5000] h-[90px] rounded-tl-[40%] rounded-tr-xl rounded-br-full !rounded-b-2xl pl-4 [clip-path:polygon(25%_0%,100%_0,100%_65%,70%_100%,0_100%,0_40%)]` "
+            :card-price-design="`relative text-center bg-[#FE5000] h-[90px] w-[100%] rounded-tl-[40%] rounded-tr-xl rounded-br-full !rounded-b-2xl pl-4
+    [clip-path:polygon(25%_0%,100%_0,100%_65%,70%_100%,0_100%,0_40%)]` "
             :card-discount-style="`text-[28px] font-obold pt-2`"
             :card-price-style="`text-[15px] font-oregular flex`"
             :card-price-and-percent="`flex gap-x-2 items-center pl-2 pb-2 absolute bottom-0 right-0 w-full`"

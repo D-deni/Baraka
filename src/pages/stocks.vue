@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import {onMounted, ref, nextTick, useTemplateRef, onUnmounted} from "vue";
+import {onMounted, ref, nextTick, useTemplateRef, onUnmounted, watch} from "vue";
 import { useStocksStore } from "../store/stocks.ts";
 import Card from "../components/reused/UI/card.vue";
 import { globalUrl } from "../composables/hooks.ts";
+import {useGlobalStore} from "../store/global.ts";
 
 const el = useTemplateRef<HTMLElement>("el");
 
-const currentPage = ref(1); // Текущая страница
+const currentPage = ref(1);
 
-const isLoading = ref(false); // Флаг загрузки
-const observerTarget = ref<HTMLElement | null>(null); // Элемент для наблюдателя
+const isLoading = ref(false);
+const observerTarget = ref<HTMLElement | null>(null);
+
+const globalStore = useGlobalStore()
 
 const stocksStore = useStocksStore();
 
@@ -17,7 +20,7 @@ const loadMore = async (initialLoad = false) => {
   if (isLoading.value || !stocksStore.hasMoreData) return;
   isLoading.value = true;
 
-  let nextPage = initialLoad ? 1 : currentPage.value;
+  let nextPage = initialLoad ? 1 : currentPage.value + 1;
   console.log(`Загрузка страницы: ${nextPage}`);
 
   try {
@@ -33,6 +36,7 @@ const loadMore = async (initialLoad = false) => {
         currentPage.value++
       }
       if (stocksStore.stocks.length < stocksStore.itemPerPage) {
+        console.log('Меньше товаров, чем лимит, останавливаем дальнейшую загрузку.');
         stocksStore.hasMoreData = false;
       }
     } else {
@@ -55,7 +59,7 @@ const setupObserver = () => {
 
   observer = new IntersectionObserver(
     (entries) => {
-      if (entries[0].isIntersecting &&  stocksStore.hasMoreData) {
+      if (entries[0].isIntersecting && stocksStore.hasMoreData) {
         console.log("Наблюдатель сработал! Загружаем новую страницу...");
         loadMore();
       }
@@ -77,6 +81,11 @@ onMounted(async () => {
   }
   nextTick(() => setupObserver());
 });
+
+watch(() => globalStore.language, () => {
+  stocksStore.loadAllStocks({ page: currentPage.value, limit: stocksStore.itemPerPage});
+    }
+);
 </script>
 
 <template>
@@ -100,13 +109,13 @@ onMounted(async () => {
           >
             <template #cardImage>
               <img
-                class="rounded-[8px] w-[376px] h-[253px] mx-auto"
+                class="rounded-[8px] w-full mx-auto"
                 :src="globalUrl + itemCard?.poster_url"
                 alt=""
               />
             </template>
             <template #cardTitle>
-              {{ itemCard?.title }}
+              {{ globalStore.language !== 'ru' ? itemCard?.title_uz : itemCard?.title }}
             </template>
           </Card>
         </div>

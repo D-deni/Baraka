@@ -9,8 +9,8 @@ interface Link {
 }
 
   defineProps<{
-    linksArray: Link[],
-    filteredLinks: Link[]
+    linksArray?: Link[],
+    filteredLinks?: any
   }>()
 
   const router = useRouter()

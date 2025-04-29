@@ -4,28 +4,29 @@ import TheBlock from "../UI/TheBlock.vue";
 import LogoVector from "/public/img/logo/logoVector.svg?skipsvgo";
 import {ref} from "vue";
 import TheTitle from "../UI/TheTitle.vue";
-
+import {useI18n} from "vue-i18n";
+const {t} = useI18n()
 
 const attributeArray = ref([
   {
     id: 0,
     number: 1,
-    text: 'Высокий оборот продукции и устойчивый рост прибыли'
+    text: t('Высокий оборот продукции и устойчивый рост прибыли')
   },
   {
     id: 1,
     number: 2,
-    text: 'Гарантированный объем продаж'
+    text: t('Гарантированный объем продаж')
   },
   {
     id: 2,
     number: 3,
-    text: 'Рост узнаваемости бренда за счет широкого представления ваших товаров на полках гипермаркетов сети'
+    text: t('Рост узнаваемости бренда за счет широкого представления ваших товаров на полках гипермаркетов сети')
   },
   {
     id: 3,
     number: 4,
-    text: 'Точность расчетов и аккуратность платежей'
+    text: t('Точность расчетов и аккуратность платежей')
   },
 ])
 </script>

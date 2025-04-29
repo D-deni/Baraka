@@ -1,12 +1,16 @@
 import {defineStore} from "pinia";
 import axios from "../composables/axios.ts";
+
 type TProduct = {
   id: number;
   title: string;
+  title_uz: string;
   price: number;
   is_available: boolean;
   image_url: string;
   description: string;
+  description_uz: string;
+  new_price?: number;
   value: number,
   discount: {
     discount_type: string;
@@ -25,7 +29,8 @@ type TDiscount = {
   is_available: boolean;
   image_url: string;
   description: string;
-  discount_type: string;
+  discount_type?: string;
+  new_price: number
   value: number,
   products: [
     {
@@ -62,10 +67,14 @@ export const useDiscountsStore = defineStore('useDiscounts', {
       })
     },
 
-    async loadProduct(params: { id: string | string[] }) {
+    async loadProduct(params: { id: string | string[]; router: any }) {
       await axios.get(`products/${params.id}`, {})
         .then(res => {
           this.product = res.data
+        }).catch(err => {
+          if (err.response && err.response.status === 404) {
+            params.router.push('/')
+          }
         })
     },
 
@@ -76,11 +85,5 @@ export const useDiscountsStore = defineStore('useDiscounts', {
         this.searchedArray = res.data
       })
     },
-
-    async loadDiscounts(params: { page: number, limit: number }) {
-      await axios.get(`discount/?page=${params.page}&limit=${params.limit}`, {}).then(response => {
-        this.discounts = response.data;
-      })
-    }
   }
 })

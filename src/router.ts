@@ -79,6 +79,11 @@ const routes = [
         path: '/news/:id',
         component: () => import('./pages/news/newsId.vue'),
         meta: {title: 'Детали новостей'}
+      },
+      {
+        path: "/policy",
+        component: () => import("./pages/policy.vue"),
+        meta: {title: 'Офферта'}
       }
     ]
   },
@@ -165,7 +170,11 @@ const routes = [
         meta: {title: 'Управление скидками'}
       },
     ]
-  }
+  },
+  {
+    path: '/:pathMatch(.*)*',  // Catch-all для всех несуществующих маршрутов
+    redirect: '/',  // Перенаправляем на главную страницу
+  },
 ];
 
 const router = createRouter({

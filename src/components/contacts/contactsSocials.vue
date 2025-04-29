@@ -15,7 +15,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex gap-x-4 mt-[40px]">
+  <div class="flex max-sm:flex-wrap max-sm:gap-y-4 max-sm:justify-center max-sm:items-center gap-x-4 mt-[40px]">
     <a :href="item.url" v-for="item in socialArray" :key="item.id" target="_blank" class="bg-[#F7F6F9] rounded-2xl py-[58px] px-[74px] relative cursor-pointer">
       <div>
         <img class="w-full" :src="globalUrl + item?.image_url" alt="">

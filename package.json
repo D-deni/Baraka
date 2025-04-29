@@ -22,7 +22,7 @@
     "v-calendar": "^3.1.2",
     "vite-svg-loader": "^5.1.0",
     "vue": "^3.4.29",
-    "vue-i18n": "^9.13.1",
+    "vue-i18n": "^11.0.0-rc.1",
     "vue-router": "^4.4.0",
     "vue-yandex-maps": "^2.1.4",
     "vue3-recaptcha-v2": "^2.0.2",

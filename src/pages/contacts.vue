@@ -2,7 +2,6 @@
 
 import Contacts from "../components/reused/contacts.vue";
 import TheTitle from "../components/UI/TheTitle.vue";
-import QrAppStore from '/img/elements/loyalty/appQR.svg?url'
 import QrGooglePlay from '/img/elements/loyalty/appQR.svg?url'
 import TheService from "../components/UI/TheService.vue";
 import TheBlock from "../components/UI/TheBlock.vue";
@@ -27,7 +26,7 @@ const globalStore = useGlobalStore()
 
 <template>
   <div>
-    <div class="container mx-auto ">
+    <div class="container mx-auto max-lg:px-4">
       <TheTitle>
         {{ $t('Наши контакты') }}
       </TheTitle>
@@ -41,37 +40,34 @@ const globalStore = useGlobalStore()
       </div>
     </div>
 
-    <div class=" bg-[#F7F6F9] max-xl:h-max relative">
+    <div class=" bg-[#F7F6F9] max-xl:h-max relative max-lg:px-4">
       <div class="bg-[url('/img/elements/vectors/ellipsestwo.webp')] bg-no-repeat bg-right-top bg-contain max-lg:bg-cover">
         <div class="container mx-auto py-[112px] relative">
-          <div class="flex items-center justify-between">
-            <div class="w-5/12 justify-center mx-auto flex flex-col">
-              <div class="flex items-start gap-x-4 ml-6">
+          <div class="flex items-center justify-between max-lg:flex-col max-lg:w-full max-lg:justify-center max-lg:items-center">
+            <div class="w-5/12 max-xl:w-full justify-center mx-auto">
+              <div class="flex items-start gap-x-4 ml-6 max-lg:mb-10">
                 <h1 class="text-to text-[64px] max-md:text-5xl max-sm:text-4xl max-[320px]:text-3xl mt-4 font-obold">Baraka club</h1>
                 <img class="w-[57px] h-[57px]" :src="LogoOrange" alt="">
               </div>
               <div class="">
-                <TheBlock class="p-6 w-max rounded-2xl !shadow-blockShadow">
+                <TheBlock class="p-6 w-max max-lg:w-full rounded-2xl !shadow-blockShadow">
                   <TheTitle class="text-[24px] text-center font-osemibold max-md:text-2xl max-md:text-center">
                     {{ $t('Скачать наше приложение') }}
                   </TheTitle>
                   <div>
                     <div class="flex max-[475px]:hidden gap-x-10 mt-6 justify-center">
                       <div class="bg-white p-2 shadow-qrShadow">
-                        <img class="" :src="QrAppStore" alt="">
-                      </div>
-                      <div class="bg-white p-2 shadow-qrShadow">
                         <img class="" :src="QrGooglePlay" alt="">
                       </div>
                     </div>
-                    <div class="flex max-md:flex-wrap max-md:gap-y-10 max-md:justify-center justify-center  gap-x-10 mt-6">
-                      <TheService :service-block-style="`bg-bgGray !w-full`"></TheService>
+                    <div class="flex max-md:flex-wrap max-md:gap-y-10 max-md:justify-center justify-center  gap-x-10 max-sm:gap-y-4 mt-6">
+                      <TheService :service-block-style="`bg-bgGray max-[450px]:!w-full justify-center`"></TheService>
                     </div>
                   </div>
                 </TheBlock>
               </div>
             </div>
-            <div class="right-20">
+            <div class="right-20 max-lg:mt-10">
               <img :src="ImgHeader" alt="">
             </div>
           </div>
@@ -79,10 +75,10 @@ const globalStore = useGlobalStore()
       </div>
     </div>
 
-    <div class="container mx-auto my-[112px]">
-      <div class="flex items-center justify-between">
-        <div class="w-6/12 flex  justify-between items-center">
-          <div class="w-8/12">
+    <div class="container mx-auto my-[112px] max-lg:px-4 ">
+      <div class="flex max-lg:flex-col items-center justify-between">
+        <div class="w-6/12 max-lg:w-full flex justify-between items-center">
+          <div class="w-8/12 max-md:w-full">
             <TheTitle>
               {{$t('Адреса магазинов')}}
             </TheTitle>
@@ -99,12 +95,12 @@ const globalStore = useGlobalStore()
               </div>
             </div>
           </div>
-          <div class="w-max">
+          <div class="w-max max-md:hidden">
             <img class="w-max mt-32 -rotate-12" :src="ArrowLeft" alt="">
           </div>
         </div>
-        <div class="w-5/12  items-center justify-between">
-          <Map :title-flag="false"  :map-style="`map-block !w-full !h-[400px] shadow-mapShadow`"/>
+        <div class="w-5/12 max-lg:w-full max-lg:mt-10 items-center justify-between">
+          <Map :title-flag="false" :map-style="`map-block !w-full !h-[400px] shadow-mapShadow`"/>
         </div>
       </div>
     </div>

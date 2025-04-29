@@ -9,12 +9,15 @@ import 'swiper/css/scrollbar';
 import TheTitle from "../components/UI/TheTitle.vue";
 import Card from "../components/reused/UI/card.vue";
 import {globalUrl} from "../composables/hooks.ts";
+import {useGlobalStore} from "../store/global.ts";
 
 const newsStore = useNewsStore();
 
-const currentPage = ref(1); // Текущая страница
-const isLoading = ref(false); // Флаг загрузки
-const observerTarget = ref<HTMLElement | null>(null); // Элемент для наблюдателя
+const currentPage = ref(1);
+const isLoading = ref(false);
+const observerTarget = ref<HTMLElement | null>(null);
+
+const globalStore = useGlobalStore()
 
 const loadMore = async (initialLoad = false) => {
   if (isLoading.value || !newsStore.hasMoreData) return;
@@ -104,7 +107,8 @@ const cleanContent = (content: string | null) => {
   const cleaned = content
       .replace(/<(?!p\s|\/p)[^>]+>/gi, "")
       .replace(/&nbsp;/g, "")
-      .trim();
+      .trim()
+      .slice(0,291);
 
   return cleaned.length > 0 ? cleaned : "";
 };
@@ -118,7 +122,7 @@ const cleanContent = (content: string | null) => {
         {{ $t('Новости') }}
       </TheTitle>
     </div>
-    <TransitionGroup name="fade" tag="div" class="grid grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:mx-auto max-sm:w-9/12 max[425px]:w-11/12 max-sm:justify-center gap-[30px] break-all ">
+    <TransitionGroup name="fade" tag="div" class="grid grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:mx-auto max-sm:w-9/12 max[425px]:w-11/12 max-sm:justify-center gap-[30px] break-words">
       <Card v-for="(item, index) in newsStore.newsArray" :key="item.id" :card-image-flag="true" :style="{ transitionDelay: index * 0.1 + 's' }"
             :card-percent-flag="false"
             :price-container-flag="false"
@@ -133,17 +137,17 @@ const cleanContent = (content: string | null) => {
             :card-link-text="`news`"
             :card-description-style="getCardDescriptionStyle(item.content)"
             :card-title-style="`text-[22px] text-to mt-6 !font-omedium`"
-            :card-image-style="`mx-auto`"
+            :card-image-style="`mx-auto !w-full`"
             :card-link="item?.id"
       >
         <template v-slot:cardImage>
-          <img class="!rounded-lg h-[230px] w-full" :src="globalUrl + item.image_url" alt="news-image">
+          <img class="!rounded-lg !w-full" :src="globalUrl + item.image_url" alt="news-image">
         </template>
         <template v-slot:cardTitle>
-          {{ item?.title?.length > 30 ? item?.title?.slice(0,30) + '...' : item?.title }}
+          {{ globalStore.language !== 'ru' ? item?.title_uz?.slice(0,30) + '...' : item?.title?.slice(0,30) }}
         </template>
         <template v-slot:cardDescription>
-          <span v-if="cleanContent(item?.content)" v-html="cleanContent(item?.content)"></span>
+          <span v-if="cleanContent(item?.content)" v-html="globalStore.language !== 'ru' ? cleanContent(item?.content_uz) : cleanContent(item?.content)"></span>
         </template>
         <template #cardBtn>
           {{ $t('Читать полностью') }}

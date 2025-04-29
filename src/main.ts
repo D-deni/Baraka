@@ -12,9 +12,16 @@ import 'vue3-toastify/dist/index.css';
 import App from './App.vue'
 import router from "./router";
 import {YandexMap} from "vue-yandex-maps";
+import {defaultLocale, languages} from "./composables/lang";
 
+
+const localeLocalStorage = localStorage.getItem("language");
+const messages = Object.assign(languages)
 const i18n = createI18n({
-
+  legacy: false,
+  locale: localeLocalStorage || defaultLocale,
+  fallbackLocale: "ru",
+  messages,
 })
 const app = createApp(App)
 const settings = {
@@ -43,3 +50,4 @@ app.component('yandex-map', YandexMap)
 app.use(YandexMap, settings)
 
 app.mount('#app')
+export default i18n.global.t

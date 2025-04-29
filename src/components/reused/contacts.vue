@@ -4,6 +4,7 @@ import VectorEllipse from '/public/img/elements/vectors/ellipses-two.svg?skipsvg
 import ArrowLeft from '/img/elements/vectors/arrow-left.webp?url'
 import ImgMail from "/img/elements/vectors/mail.webp?url"
 import TheTitle from "../UI/TheTitle.vue";
+
 defineProps({
   botBlockFlag: Boolean,
   contactBlockFlag: Boolean,
@@ -13,12 +14,13 @@ defineProps({
   titleStyle: String,
   blockStyle: String,
   imgVector: String,
+  isEmail: String
 })
 </script>
 
 <template>
   <div class="max-sm:px-6">
-    <div class="bg-[#F7F6F9] w-full flex flex-col gap-y-14 justify-center relative  max-lg:h-max max-sm:h-max rounded-3xl p-10 max-sm:!p-4 mt-48 max-sm:my-20" :class="blockStyle">
+    <div class="bg-[#F7F6F9] w-full flex flex-col gap-y-14 max-md:gap-y-6 justify-center relative  max-lg:h-max max-sm:h-max rounded-3xl p-10 max-sm:!p-4 mt-48 max-sm:my-20" :class="blockStyle">
       <TheTitle v-if="titleFlag">{{$t('Контакты')}}</TheTitle>
       <div v-if="vacanciesBlockFlag" class="flex flex-col gap-y-4 gap-x-6">
         <div class="flex flex-col gap-y-4 gap-x-6 z-10 max-md:!items-center">
@@ -31,7 +33,7 @@ defineProps({
                   <path d="M15.5833 8.25L12.7142 10.5417C11.77 11.2933 10.2208 11.2933 9.27665 10.5417L6.41666 8.25" stroke="#FE5000" stroke-width="1.375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <a href="mailto:postavshik@barakamarket.uz"><span>{{$t('Почта')}}:</span> postavshik@barakamarket.uz</a>
+              <a href="mailto:marketing@barakamarket.uz"><span>{{$t('Email')}}:</span> {{isEmail}}</a>
             </div>
             <div class="max-md:hidden">
               <img class="w-9/12" :src="ArrowLeft" alt="">
@@ -51,7 +53,7 @@ defineProps({
               <path d="M3.31823 7.78315C5.12406 -0.15518 16.8849 -0.146013 18.6816 7.79232C19.7357 12.449 16.8391 16.3907 14.2999 18.829C12.4574 20.6073 9.5424 20.6073 7.69073 18.829C5.16073 16.3907 2.26406 12.4398 3.31823 7.78315Z" stroke="#FE5000" stroke-width="1.375"/>
             </svg>
           </div>
-          <p class="flex gap-x-2 text-[17px] font-oregular max-sm:flex-col">{{$t('Адрес:')}}<span>{{$t('Республика Узбекистан г.Ташкент, Яккасарайский район, ул.Бабура 74.')}}</span></p>
+          <p class="flex gap-x-2 text-[17px] font-oregular max-sm:flex-col">{{$t('Адрес')}}:<span>{{$t('Республика Узбекистан г.Ташкент, Яккасарайский район, ул.Бабура 74.')}}</span></p>
         </div>
         <a href="mailto:info@barakamarket.uz" class="flex gap-x-2 items-center">
           <div>
@@ -65,16 +67,16 @@ defineProps({
       </div>
       <div v-if="botBlockFlag" class="flex gap-x-10 max-lg:flex-col max-lg:gap-y-6 max-lg:justify-center">
         <div class="pr-6 border-r max-lg:border-none flex flex-col max-sm:flex-row max-sm:mx-auto max-sm:gap-x-10 max-[528px]:flex-col gap-y-4 text-[17px]">
-         <div class="flex gap-x-2 items-center">
+         <a href="https://t.me/HR_URBAN" target="_blank" class="flex gap-x-2 items-center">
            <div>
              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                <rect width="40" height="40" rx="20" fill="#FE5000" fill-opacity="0.06"/>
                <path d="M11.3796 18.9396C13.1983 17.9568 15.2284 17.1365 17.1254 16.3121C20.3888 14.9617 23.6651 13.6347 26.9746 12.3993C27.6185 12.1888 28.7754 11.9829 28.8888 12.919C28.8267 14.2441 28.5712 15.5615 28.3959 16.8788C27.951 19.7757 27.4368 22.6627 26.9354 25.5501C26.7626 26.5119 25.5345 27.0097 24.7487 26.3943C22.8603 25.1428 20.9573 23.9036 19.0929 22.6232C18.4822 22.0143 19.0485 21.1401 19.5939 20.7054C21.1493 19.2016 22.7989 17.9239 24.273 16.3424C24.6706 15.4004 23.4957 16.1943 23.1082 16.4376C20.9789 17.8771 18.9016 19.4046 16.6566 20.6697C15.5099 21.289 14.1733 20.7598 13.0271 20.4142C11.9993 19.9968 10.4933 19.5762 11.3795 18.9397L11.3796 18.9396Z" fill="#FE5000"/>
              </svg>
            </div>
-           <p>{{'@HR_BM0'}}</p>
-         </div>
-         <a href="tel:+998900241444" class="flex gap-x-2 items-center font-omedium">
+           <p>{{'@HR_URBAN'}}</p>
+         </a>
+         <a href="tel:+998908301940" class="flex gap-x-2 items-center font-omedium">
            <div>
              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                <rect width="40" height="40" rx="20" fill="#FE5000" fill-opacity="0.06"/>
@@ -83,7 +85,7 @@ defineProps({
                <path d="M29.1667 17.2507C29.1667 13.7032 26.2975 10.834 22.75 10.834" stroke="#FE5000" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
              </svg>
            </div>
-           <p >{{'+998 90 024 14 44'}}</p>
+           <p >{{'+998 90 830 19 40'}}</p>
          </a>
         </div>
         <div class="flex flex-col gap-y-2 font-oregular">
@@ -119,7 +121,7 @@ defineProps({
           </div>
         </div>
       </div>
-      <img v-if="$route.path !== '/providers' && $route.path !== '/advertisers'" :class="imgVector" class="absolute -top-[90px] max-xl:w-4/12 max-xl:-top-10 max-sm:hidden max-md:-top-20 max-md:w-8/12 max-lg:w-6/12 right-0" :src="ImgContact" alt="">
+      <img v-if="$route.path !== '/providers' && $route.path !== '/advertisers'" :class="imgVector" class="absolute -top-[90px] max-lg:hidden max-xl:w-4/12 max-xl:-top-10 max-md:-top-20 max-md:w-8/12 max-lg:w-6/12 right-0" :src="ImgContact" alt="">
     </div>
   </div>
 </template>

@@ -1,50 +1,52 @@
 <script setup lang="ts">
 import {ref} from "vue";
+import {useI18n} from "vue-i18n";
 
+const {t} = useI18n()
 const navArray = ref([
   {
     id: 0,
-    name: 'О компании',
+    name: t('О компании'),
     url: '/about'
   },
   {
     id: 1,
-    name: 'Наш подход / наши ценности',
+    name: t('Наш подход / наши ценности'),
     url: '/about'
   },
   {
     id: 2,
-    name: 'Новости и акции',
+    name: t('Новости и акции'),
     url: '/news'
   },
   {
     id: 3,
-    name: 'Карьера',
+    name: t('Карьера'),
     url: '/career'
   },
   {
     id: 4,
-    name: 'Поставщикам',
+    name: t('Поставщикам'),
     url: '/providers'
   },
   {
     id: 5,
-    name: 'Программа лояльности',
+    name: t('Программа лояльности'),
     url: '/loyalty'
   },
   {
     id: 6,
-    name: 'Арендодателям и собственникам',
+    name: t('Арендодателям и собственникам'),
     url: '/rental'
   },
   {
     id: 7,
-    name: 'Рекламодателям',
+    name: t('Рекламодателям'),
     url: '/advertisers'
   },
   {
     id: 8,
-    name: 'Наши контакты',
+    name: t('Наши контакты'),
     url: '/contacts'
   },
 ])
@@ -55,7 +57,7 @@ const scrollToTop = () => {
 </script>
 
 <template>
-  <div class="font-oregular" v-for="navItem in navArray" :key="navItem.id">
+  <div class="font-oregular max-sm:text-[14px]" v-for="navItem in navArray" :key="navItem.id">
     <RouterLink :to="navItem.url" @click="scrollToTop">
       <p>{{navItem.name}}</p>
     </RouterLink>

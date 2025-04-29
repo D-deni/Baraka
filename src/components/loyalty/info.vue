@@ -3,26 +3,29 @@ import {ref} from "vue";
 import TheBlock from "../UI/TheBlock.vue";
 import TheTitle from "../UI/TheTitle.vue";
 import LogoOrange from "/public/img/logo/logoOrange.svg?skipsvgo";
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n()
 const infoArray = ref([
   {
     id: 0,
     number: 1,
-    desc: 'Приобретите пластиковую Карту Baraka Club в любом магазине “Baraka Market за 6 000 сум!',
+    desc: t('Приобретите пластиковую Карту Baraka Club в любом магазине “Baraka Market за 6 000 сум!'),
   },
   {
     id: 1,
     number: 2,
-    desc: 'Скачайте мобильное приложение Baraka Club и пользуйтесь бесплатной виртуальной картой!',
+    desc: t('Скачайте мобильное приложение Baraka Club и пользуйтесь бесплатной виртуальной картой!'),
   },
   {
     id: 2,
     number: 3,
-    desc: 'Совершите покупки в магазине на сумму 100 000 сум и получите карту Baraka Club бесплатно',
+    desc: t('Совершите покупки в магазине на сумму 100 000 сум и получите карту Baraka Club бесплатно'),
   },
   {
     id: 3,
     number: 4,
-    desc: 'Регистрация в программе лояльности Baraka Market возможна на сайте или через колл-центр.',
+    desc: t('Регистрация в программе лояльности Baraka Market возможна на сайте или через колл-центр'),
   },
 ])
 </script>

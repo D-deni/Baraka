@@ -13,22 +13,20 @@ import FadeIn from "../components/UI/FadeIn.vue";
 
 <template>
   <div class="overflow-hidden">
-    <FadeIn class="max-sm:container mx-auto" >
+    <FadeIn class="max-sm:container mx-auto">
       <SwiperMain/>
     </FadeIn>
-    <div class="mx-auto min-h-[100%]">
-      <FadeIn class="">
-        <div class=" my-[112px] max-sm:my-[64px] mx-auto max-w-[1800px] max-sm:container max-2xl:px-4 max-sm:px-0">
-          <SwiperDiscount/>
-        </div>
-      </FadeIn>
-      <div class="container mx-auto min-h-[100%]">
-        <div class="my-20" >
-          <SwiperShares/>
-        </div>
-        <div class="my-20 max-sm:mx-4 min-h-[100%] ">
-          <Feedback/>
-        </div>
+    <FadeIn class="">
+      <div class=" my-[112px] max-sm:my-[64px] mx-auto max-w-[1800px] max-sm:container max-2xl:px-4 max-sm:px-0">
+        <SwiperDiscount/>
+      </div>
+    </FadeIn>
+    <div class="container mx-auto">
+      <div class="my-20">
+        <SwiperShares/>
+      </div>
+      <div class="my-20 max-sm:mx-4 min-h-[100%] ">
+        <Feedback/>
       </div>
     </div>
     <div class="my-20 bg-[#F7F6F9] h-[605px] relative max-sm:my-[164px]">

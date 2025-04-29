@@ -16,7 +16,6 @@ const nextShare = ref<HTMLElement | null>(null);
 const isMobile = computed(() => {
   return window.innerWidth >= 790
 })
-
 const stocksStore = useStocksStore()
 
 onMounted(() => {
@@ -31,19 +30,20 @@ onMounted(() => {
         {{$t('Акции')}}
       </TheTitle>
       <div class="flex gap-x-4 max-md:hidden">
-        <button ref="prevShare" class="w-[40px] h-max transform -translate-y-1/2 bg-[#F2F2F2] p-[10px] rounded-full flex items-center justify-center">
+        <button ref="prevShare" aria-label="Предыдущий" class="w-[40px] h-max transform -translate-y-1/2 bg-[#F2F2F2] p-[10px] rounded-full flex items-center justify-center">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.575 3.4001L7.14162 8.83343C6.49995 9.4751 6.49995 10.5251 7.14162 11.1668L12.575 16.6001" stroke="#292D32" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        <button ref="nextShare" class="w-[40px] h-max transform -translate-y-1/2 bg-[#F2F2F2] p-[10px] rounded-full flex items-center justify-center">
+
+        <button ref="nextShare" aria-label="Следующий" class="w-[40px] h-max transform -translate-y-1/2 bg-[#F2F2F2] p-[10px] rounded-full flex items-center justify-center">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.42505 16.5999L12.8584 11.1666C13.5 10.5249 13.5 9.4749 12.8584 8.83324L7.42505 3.3999" stroke="#292D32" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </div>
     </div>
-    <Swiper class="h-[350px] max-md:h-max max-md:w-full mx-auto"
+    <Swiper class="h-[290px] max-md:h-max max-md:w-full mx-auto"
             id="swiper"
             :navigation="{
             prevEl: prevShare,
@@ -79,11 +79,18 @@ onMounted(() => {
         <Card :card-image-flag="true"
               :card-percent-flag="true"
               :card-link-text="`stocks`"
-              :card-image-style="`w-full mx-auto flex justify-center`"
+              :card-image-style="`w-full mx-auto flex justify-center  max-md:w-[500px] max-sm:w-fit mx-auto `"
               :card-link="item?.id"
         >
           <template v-slot:cardImage>
-            <img class="rounded-lg " width="100%" height="100%" :src="globalUrl + item?.poster_url" alt="">
+            <img
+                class="rounded-lg w-fit h-fit"
+                :alt="`Постер ${item?.title}`"
+                width="500"
+                height="300"
+                loading="lazy"
+                :src="globalUrl + item?.poster_url"
+            >
           </template>
         </Card>
       </SwiperSlide>

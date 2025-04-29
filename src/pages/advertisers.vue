@@ -7,22 +7,25 @@ import ImgTwo from '/img/elements/advertisers/two.webp?url'
 import ImgThree from '/img/elements/advertisers/three.webp?url'
 import TheBlock from "../components/UI/TheBlock.vue";
 import Contacts from "../components/reused/contacts.vue";
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n()
 
 const adArray = ref([
   {
     id: 0,
     img: ImgOne,
-    text: 'Передовые рекламные технологии'
+    text: t('Передовые рекламные технологии')
   },
   {
     id: 1,
     img: ImgTwo,
-    text: 'Индивидуальные программы для каждого рекламодателя'
+    text: t('Индивидуальные программы для каждого рекламодателя')
   },
   {
     id: 2,
     img: ImgThree,
-    text: 'Комплексные программы продвижения республиканского уровня'
+    text: t('Комплексные программы продвижения республиканского уровня')
   },
 ])
 </script>
@@ -51,7 +54,7 @@ const adArray = ref([
       </div>
     </div>
     <div class="container mx-auto ">
-      <Contacts :title-style="`!w-6/12 max-lg:!w-8/12 max-md:!text-center`" :vacancies-block-flag="true" :block-style="`overflow-hidden`">
+      <Contacts :title-style="`!w-6/12 max-lg:!w-8/12 max-md:!text-center`" is-email="marketing@barakamarket.uz" :vacancies-block-flag="true" :block-style="`overflow-hidden`">
         <template #title>
           {{$t('Если вас заинтересовало наше предложение, пожалуйста, свяжитесь с нами, отправив письмо на:')}}
         </template>

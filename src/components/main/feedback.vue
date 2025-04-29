@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ImgLeft from '/img/elements/feedback/left.webp?url'
 import ImgRight from '/img/elements/feedback/right.webp?url'
 import IconPensive from '/img/elements/feedback/pensive.webp?url'
 import IconRolling from '/img/elements/feedback/rolling.webp?url'
@@ -11,34 +10,36 @@ import {ref} from "vue";
 import {useGlobalStore} from "../../store/global.ts";
 import TheModal from "../UI/TheModal.vue";
 import TheButton from "../UI/TheButton.vue";
+import {useI18n} from "vue-i18n";
 
-
+const {t} = useI18n()
 const global = useGlobalStore();
 const ratingFlag = ref<number | null>(null)
+const ratingValue = ref<string | null>(null)
 const arrowActive = ref(false)
 const feedBackArray = ref([
   {
     id: 0,
     rating: 1,
-    title: 'Плохо',
+    title: t('Плохо'),
     icon: IconPensive,
   },
   {
     id: 1,
     rating: 2,
-    title: 'Сойдет',
+    title: t('Сойдет'),
     icon: IconRolling,
   },
   {
     id: 2,
     rating: 3,
-    title: 'Хорошо',
+    title: t('Хорошо'),
     icon: IconKiss,
   },
   {
     id: 3,
     rating: 4,
-    title: 'Отлично',
+    title: t('Отлично'),
     icon: IconHeart,
   },
 
@@ -57,7 +58,7 @@ defineProps({
          class=" max-md:my-[64px] w-full relative rounded-xl cursor-pointer max-sm:text-center ">
       <div class="bg-feedbackGradient absolute h-full w-9/12 max-sm:w-full opacity-70 max-sm:opacity-90 rounded-l-[30px] rounded-r-[30px]"></div>
       <div class="flex items-center w-full h-[300px] rounded-[30px] relative max-sm:overflow-visible overflow-hidden">
-        <img class="h-full w-[70%] max-sm:w-full scale-150 absolute left-0 opacity-5  max-sm:hidden rounded-[30px]" :src="ImgLeft" alt="">
+<!--        <img class="h-full w-[70%] max-sm:w-full scale-150 absolute left-0 opacity-5  max-sm:hidden rounded-[30px]" :src="ImgLeft" alt="">-->
         <img class="h-full absolute right-0 rounded-[30px] max-sm:hidden " :src="ImgRight" alt="">
         <div class="flex max-sm:flex-wrap max-sm:justify-center items-center w-full relative gap-x-20">
           <div class="text-white w-3/12 max-sm:w-full ml-10 flex justify-center flex-col ">
@@ -76,13 +77,13 @@ defineProps({
           </div>
           <div class="flex flex-col h-full items-center w-2/12 gap-y-10 relative max-sm:static">
             <div class="absolute -rotate-[19deg] -top-32 right-10 max-sm:z-10 max-sm:-top-[110px] max-sm:-right-6">
-              <img class="w-[100px] max-sm:[102px]" :src="IconHeart" alt="">
+              <img class="w-[100px] max-sm:w-[102px]" :src="IconHeart" alt="heart-icon" width="100" height="100">
             </div>
             <div class="absolute rotate-[15deg] left-10 max-sm:-left-8 max-sm:-bottom-20">
-              <img class="w-max max-sm:w-[83px]" :src="IconKiss" alt="">
+              <img class="w-[83px] max-sm:w-[83px]" :src="IconKiss" alt="icon-kiss" width="83" height="83">
             </div>
             <div class="absolute  max-sm:hidden -rotate-[13deg] top-[6rem] right-0">
-              <img class="w-10/12 " :src="IconRolling" alt="">
+              <img class="w-10/12" :src="IconRolling" alt="icon-rolling" width="400" height="300">
             </div>
           </div>
         </div>
@@ -105,8 +106,8 @@ defineProps({
         <div class="text-to font-obold text-3xl text-center">
           <h3>{{ $t('Оценка качества Baraka Market') }}</h3>
         </div>
-        <div class="flex justify-center items-center gap-x-6 my-10 flex-wrap gap-y-4 max-sm:overflow-scroll h-[500px]">
-          <div @click="ratingFlag = rating.id"
+        <div class="flex justify-center items-center gap-x-6 my-10 flex-wrap gap-y-4 max-sm:overflow-auto h-[500px]">
+          <div @click="ratingFlag = rating.id, ratingValue = rating.title"
                :class="{'bg-orange-200 transition-all duration-200' : ratingFlag === rating.id, 'hover:bg-orange-200' : ratingFlag === rating.id}"
                class="py-6 bg-bgGray w-[191px] hover:bg-gray-200 transition-all cursor-pointer durtaion-200 mx-auto flex rounded-3xl flex-col items-center"
                v-for="rating in feedBackArray" :key="rating.id">
@@ -114,7 +115,7 @@ defineProps({
             <p class="mt-6 font-omedium text-xl">{{ $t(rating.title) }}</p>
           </div>
         </div>
-        <TheButton @click="global.modalFeedback = false; global.modalFeedbackThanks = true" type="btnOrange"
+        <TheButton @click="global.modalFeedback = false; global.modalFeedbackThanks = true, global.createFeedback({content: ratingFlag}); console.log(ratingValue)" type="btnOrange"
                    class="mx-auto w-4/12 mb-10 max-sm:w-6/12 flex justify-center py-3">
           {{ $t('Голосовать') }}
         </TheButton>

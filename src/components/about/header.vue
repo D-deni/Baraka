@@ -10,7 +10,7 @@ import VectorLogo from '/public/img/logo/logoVector.svg?skipsvgo'
   <div class="max-sm:px-4">
     <TheTitle>{{ $t('О нас') }}</TheTitle>
     <div class="max-md:px-6 mt-8 ">
-      <p class="mb-4 text-xl">{{$t('«Baraka Market» - сеть розничных магазинов товаров народного потребления.')}}</p>
+      <p class="mb-4 text-xl">{{$t('«Baraka Market» - сеть розничных магазинов товаров народного потребления')}}</p>
       <div class="flex gap-x-6 w-[700px] h-[400px] max-2xl:h-max max-2xl:flex-wrap max-lg:w-full justify-center mx-auto gap-y-10 items-center">
         <img class="rounded-xl max-lg:w-max h-full" :src="ImgOne" alt="">
         <img class="rounded-xl max-lg:w-max h-full" :src="ImgTwo" alt="">

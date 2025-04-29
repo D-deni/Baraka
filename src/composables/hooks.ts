@@ -1,2 +1,5 @@
 
-export const globalUrl = 'https://api-baraka.ai-softdev.com/'
+export const globalUrl = 'https://backend.barakamarket.uz/'
+
+
+
