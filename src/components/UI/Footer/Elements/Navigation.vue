@@ -49,6 +49,11 @@ const navArray = ref([
     name: t('Наши контакты'),
     url: '/contacts'
   },
+  {
+    id: 8,
+    name: t('Политика'),
+    url: '/policy'
+  },
 ])
 
 const scrollToTop = () => {
@@ -59,7 +64,7 @@ const scrollToTop = () => {
 <template>
   <div class="font-oregular max-sm:text-[14px]" v-for="navItem in navArray" :key="navItem.id">
     <RouterLink :to="navItem.url" @click="scrollToTop">
-      <p>{{navItem.name}}</p>
+      <p>{{t(navItem.name)}}</p>
     </RouterLink>
   </div>
 </template>
